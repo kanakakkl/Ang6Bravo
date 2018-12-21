@@ -1,0 +1,56 @@
+<table class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
+  <thead>
+      <tr>
+          <th>Division <mdb-icon icon="sort" (click)="sortBy('division')"></mdb-icon></th> 
+          <th>Jan <mdb-icon icon="sort" (click)="sortBy('jan')"></mdb-icon></th>
+          <th>Feb <mdb-icon icon="sort" (click)="sortBy('feb')"></mdb-icon></th>
+          <th>Mar <mdb-icon icon="sort" (click)="sortBy('mar')"></mdb-icon></th>
+          <th>Apr <mdb-icon icon="sort" (click)="sortBy('apr')"></mdb-icon></th>
+          <th>May <mdb-icon icon="sort" (click)="sortBy('may')"></mdb-icon></th>
+          <th>Jun <mdb-icon icon="sort" (click)="sortBy('jun')"></mdb-icon></th>
+          <th>Jul <mdb-icon icon="sort" (click)="sortBy('jul')"></mdb-icon></th>
+          <th>Aug <mdb-icon icon="sort" (click)="sortBy('aug')"></mdb-icon></th>
+          <th>Sep <mdb-icon icon="sort" (click)="sortBy('sep')"></mdb-icon></th>
+          <th>Oct <mdb-icon icon="sort" (click)="sortBy('oct')"></mdb-icon></th>
+          <th>Nov <mdb-icon icon="sort" (click)="sortBy('nov')"></mdb-icon></th>
+          <th>Dec <mdb-icon icon="sort" (click)="sortBy('dec')"></mdb-icon></th>
+          <th>Total <mdb-icon icon="sort" (click)="sortBy('total')"></mdb-icon></th>
+      </tr>
+  </thead>
+  <tfoot>
+      <tr>
+          <th>Total</th>
+          <th>{{getColTotal('jan')}}</th>
+          <th>{{getColTotal('feb')}}</th>
+          <th>{{getColTotal('mar')}}</th>
+          <th>{{getColTotal('apr')}}</th>
+          <th>{{getColTotal('may')}}</th>
+          <th>{{getColTotal('jun')}}</th>
+          <th>{{getColTotal('jul')}}</th>
+          <th>{{getColTotal('aug')}}</th>
+          <th>{{getColTotal('sep')}}</th>
+          <th>{{getColTotal('oct')}}</th>
+          <th>{{getColTotal('nov')}}</th>
+          <th>{{getColTotal('dec')}}</th>
+          <th>{{getTotal()}}</th>
+      </tr>
+  </tfoot>
+  <tbody>
+      <tr *ngFor="let person of personArray , let i= index">
+          <td>{{person.division}}</td>
+          <td>{{person.jan}}</td>
+          <td>{{person.feb}}</td>
+          <td>{{person.mar}}</td>
+          <td>{{person.apr}}</td>
+          <td>{{person.may}}</td>
+          <td>{{person.jun}}</td>
+          <td>{{person.jul}}</td>
+          <td>{{person.aug}}</td>
+          <td>{{person.sep}}</td>
+          <td>{{person.oct}}</td>
+          <td>{{person.nov}}</td>
+          <td>{{person.dec}}</td>
+          <th>{{getSum(i)}}</th>
+      </tr>
+  </tbody>
+</table>

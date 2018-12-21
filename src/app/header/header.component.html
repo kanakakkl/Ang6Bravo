@@ -1,0 +1,109 @@
+<div class="ttl">
+  <div #logoDivId class="z-depth-4 logodiv isReportslogodiv">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <img src="assets/img/barvo_logo.png" class="img-fluid img-logo isreportsimg-logo" alt="bravologo">
+    </div>
+  </div>
+  <div #contentDivId class="contentdiv isReportscontentdiv">
+    <div class="col-md-12 text-right" id="iconstag">
+
+      <label class="txt_color" id="timelab"> {{today | date:'fullDate'}}</label> &nbsp;&nbsp;
+      <img src="assets/img/user_icon.png" height="25px" width="25px" alt="searchicon">&nbsp;
+      <label class="txt_color"><span style="font-size:16px; font-weight: bold;">Logged as :</span>&nbsp;{{userName}}</label>
+
+    </div>
+    <div class="col-md-12">
+      <p class="txt_colorh4">{{headertext}}</p>
+      <P class="txt_color" id="ptext">{{paratext}}</P>
+      <div *ngIf=isReports class="row">
+        <div class="date">
+          <p style="color:#fff">
+            Select Date Range:
+          </p>
+          <my-date-range-picker class="daterangeCls" name="mydaterange" [options]="myDateRangePickerOptions"
+            (dateRangeChanged)="onDateRangeChanged($event)" [(ngModel)]="model" required></my-date-range-picker>
+        </div>
+        <div class="mulsdiv">
+          <p style="color:#fff; margin: 4px;">
+            Site:
+          </p>
+          <mat-form-field class="matformCls">
+            <mat-select panelClass="matpanelCls" class="matSelectAuto" [(ngModel)]="selectedModule" multiple
+              (document:click)='onClick($event)' (ngModelChange)="changeClient2($event)">
+              <mat-option *ngFor="let dive of divisions" #plantVal value="{{dive.div_name}}">{{dive.div_name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="navmenu-cls flex" style="width:18%;margin-top: -2.3rem;">
+
+      <nav id="sidebar" class="shift">
+        <ul id="dashboadul" class="list-unstyled components">
+          <li [ngClass]="{activeCls: isActive('/home')}"><a [routerLink]="['./home']" (click)="getActiveRoute('home')">Nemak
+              Home</a></li>
+          <li [ngClass]="{activeCls: isActive('/spotRecognition')}"><a [routerLink]="['./spotRecognition']" (click)="getActiveRoute('spotRecognition')">On The Spot
+              Recognition</a></li>
+          <li [ngClass]="{activeCls: isActive('/formalRecognition')}"><a [routerLink]="['./formalRecognition']" (click)="getActiveRoute('formalRecognition')">Formal
+              Recognition</a></li>
+          <li [ngClass]="{activeCls: isActive('/spotReports')}"><a [routerLink]="['./spotReports']" (click)="getActiveRoute('spotReports')">On The Spot
+              Recognition
+              Reports</a></li>
+          <li [ngClass]="{activeCls: isActive('/formalReports')}"><a [routerLink]="['./formalReports']" (click)="getActiveRoute('formalReports')">Formal
+              Recognition
+              Reports</a></li>
+          <li [ngClass]="{activeCls: isActive('/reports')}"><a [routerLink]="['./reports']" (click)="getActiveRoute('reports')">Award
+              Analytics</a></li>
+          <li [ngClass]="{activeCls: isActive('/formalApprovals')}"><a [routerLink]="['./formalApprovals']" (click)="getActiveRoute('formalApprovals')">Formal
+             Approvals</a></li>
+        </ul>
+
+        <div class="navitem">
+          <hr>
+          <span><a class="lin" [routerLink]="['./help']" (click)="getActiveRoute('help')">Help</a></span>
+          <div class="vl"></div>
+          <span><a class="lin" [routerLink]="['./contact']" (click)="getActiveRoute('contact')">Contact</a></span>
+        </div>
+      </nav>
+
+      <div id="content">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div id="chartTop">
+      <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="square-spin"></ngx-spinner>
+      <div *ngIf="isHome">
+        <app-home></app-home>
+      </div>
+      <div *ngIf="isSpot">
+        <app-spotrecog></app-spotrecog>
+      </div>
+      <div *ngIf="isFormal">
+        <app-formalrecog></app-formalrecog>
+      </div>
+      <div *ngIf="isSpotReports" class="spotreporrts">
+        <app-spotreports style="overflow-x: scroll;"></app-spotreports>
+      </div>
+      <div *ngIf="isFormalReports" class="formareportsCls">
+        <app-formalreports style="overflow-x: scroll;"></app-formalreports>
+      </div>
+      <div *ngIf="isReports">
+        <app-charts [data]="selectedValue" [daterangeval]="myDateRange"></app-charts>
+      </div>
+      <div *ngIf="isHelp">
+        <app-help></app-help>
+      </div>
+      <div *ngIf="isContact">
+        <app-contact></app-contact>
+      </div>
+      <div *ngIf="isFormalApproval">
+       <app-formalapprovals></app-formalapprovals>
+      </div>
+    </div>
+  </div>

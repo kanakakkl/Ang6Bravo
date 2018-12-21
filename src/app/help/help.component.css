@@ -1,0 +1,125 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto !important;
+}
+
+.divfields
+{
+    box-shadow:  0 0 5px gray;
+    border-radius: 5px;
+    height: 740px;
+    background: #fff;
+    margin-top: -54px;
+}
+h5{
+font-size: 24px;
+}
+
+#descDiv{
+    margin: -46.8% 70%;
+}
+@supports (-moz-appearance:none) {
+    #descDiv{
+        margin: -46.8% 70%;
+      
+    }
+}
+    @media screen and (max-width: 767px) {
+        #small{
+            margin-top: 20px !important;
+           
+        } 
+        .divfields
+        {
+            height: 1064px !important;
+            margin: 0px;
+        }
+            
+    }
+      
+@media screen and (width: 1280px) , screen and (height: 800px)
+{
+    #descDiv
+    {
+        margin: -46.8% 70%;
+    }
+}
+@media screen and (width: 768px) , screen and (height: 1024px)
+{
+    #descDiv
+    {
+        margin:0px;
+    }
+    .container-fluid{
+        width: 103%;
+    margin-top: 49px;
+    }
+    .divfields
+{
+    height: 720px !important; 
+}
+
+}
+@media screen and (width: 1024px) , screen and (height: 1366px)
+{
+    #descDiv
+    {
+        margin:0px;
+    }
+}
+@media screen and (width: 1440px) , screen and (height: 900px)
+{
+    #descDiv
+    {
+        margin: -52.10% 70%;
+    } 
+}
+@media screen and (width: 1280px) , screen and (height: 800px)
+{
+    #descDiv
+    {
+        margin: -58.65% 70%;
+    }
+}
+
+@media screen and (width: 1366px) , screen and (height: 768px)
+{
+    #descDiv
+    {
+        margin: -54.1% 70%;
+    }
+}
+.divfields::-webkit-scrollbar {
+    width: 10px;
+    }
+    /* 
+    .divfields::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    }
+    
+    .divfields::-webkit-scrollbar-thumb {
+    background: #e4e4e4;
+    border-radius: 10px;
+    }
+.divfields { -ms-overflow-style: none; }
+
+.divfields::-webkit-scrollbar {
+    width: 10px;
+} */
+a:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
+#helpstyles{
+    font-weight: 500;    
+}
+
+@media screen and (width: 1920px) , screen and (height: 1080px)
+{ 
+    #descDiv
+    {
+        margin: -38.6% 70%;
+    } 
+}

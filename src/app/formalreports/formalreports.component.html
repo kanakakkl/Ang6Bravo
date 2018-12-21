@@ -1,0 +1,143 @@
+<div class="Topbar" style="margin-left: -45px;">
+    <div class="search">
+        <input type="search" [(ngModel)]="searchText" placeholder="Search by" class="form" id="usr">
+    </div>
+</div>
+<div style="margin-left: -45px;" [ngStyle]=" {'opacity': mdlSampleIsOpen || delmdlSampleIsOpen ? '0.4' : '1','pointer-events': mdlSampleIsOpen || delmdlSampleIsOpen ? 'none' : 'auto'}">
+    <table style="margin-top: 20px;" class="table table-striped table-bordered table-responsive-md" cellspacing="0">
+        <thead>
+            <tr >
+                <th style="width: 5%;">ID</th>
+                <th style="width: 12%;">Site</th>
+                <th style="width: 11%">Department</th>
+                <th style="width: 11%">Category</th>
+                <th style="width: 20%">Recognized</th>
+                <th style="width: 11%">Nemak Value</th>
+                <th style="width: 20%">Description</th>
+                <th style="width: 8%">Date</th>
+                <th style="width: 20%">Comments</th>
+                <th style="width: 7%">Actions</th>
+            </tr>
+        </thead>
+        <tbody style="font-size:13px" *ngFor="let submission of search(),let i= index">
+            <tr *ngIf="submission.RecognitionType == 'Formal'">
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">{{submission.Approval_id}}</td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">{{submission.Site}}</td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">{{submission.Department}}</td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">{{submission.Category}}</td>
+                <td *ngIf="submission.RecognitionEmployees.length > 0 && i >= firstVisibleIndex && i <= lastVisibleIndex"
+                    width="80" height="20">
+                    <div style="width: 95%; height: 80px; overflow: auto" class="desc-cls">
+                        {{getRecog(submission.RecognitionEmployees)}}
+                    </div>
+                </td>
+                <td *ngIf="submission.RecognitionEmployees.length === 0 && i >= firstVisibleIndex && i <= lastVisibleIndex"></td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">{{submission.Value}}</td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex" width="80" height="20">
+                    <div style="width: 95%; height: 80px; overflow: auto" class="desc-cls">
+                        {{submission.Reason}}
+                    </div>
+                </td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">{{submission.SubmitDate | date:'EEEE,
+                    M/d/yy'}}</td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex" width="80" height="20">
+                    <div style="width: 95%; height: 80px; overflow: auto" class="desc-cls">
+                        {{submission.Comments}}
+                    </div>
+                </td>
+                <td *ngIf="i >= firstVisibleIndex && i <= lastVisibleIndex">
+                    <img src="assets/img/editmode.png" alt="arrow" id="fa" (click)="editClick(submission)" aria-hidden="true">
+                    <span class="vl"></span>
+                    &nbsp;
+                    
+                    <img src="assets/img/deletemode.png" alt="arrow" id="fa" (click)="openDelModal(true,submission)" aria-hidden="true">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Bottom Table UI-->
+    <div class="d-flex justify-content-center">
+
+        <!--Pagination -->
+        <nav class="my-4 pt-2">
+            <ul class="pagination pagination-circle pg-purple mb-0">
+
+                <!--First-->
+                <li class="page-item clearfix d-none d-md-block" (click)="firstPage()" [ngClass]="{disabled: activePage == 1}">
+                    <a class="page-link">First</a>
+                </li>
+
+                <!--Arrow left-->
+                <li class="page-item" (click)="previousPage($event)" [ngClass]="{disabled: activePage == 1}">
+                    <a class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+
+                <!--Numbers-->
+                <li #pages *ngFor="let page of paginators | slice:firstVisiblePaginator:lastVisiblePaginator; let i = index"
+                    class="page-item" [ngClass]="{active: i + firstVisiblePaginator + 1 == activePage}">
+                    <a class="page-link waves-light" (click)="changePage($event)" mdbWavesEffect>{{page}}</a>
+                </li>
+
+
+
+                <!--Arrow right-->
+                <li class="page-item" (click)="nextPage($event)" [ngClass]="{disabled: activePage == numberOfPaginators}">
+                    <a class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+
+                <!--First-->
+                <li class="page-item clearfix d-none d-md-block" (click)="lastPage()" [ngClass]="{disabled: activePage == numberOfPaginators}">
+                    <a class="page-link">Last</a>
+                </li>
+
+            </ul>
+        </nav>
+        <!--/Pagination -->
+
+    </div>
+    <!--Bottom Table UI-->
+</div>
+
+<div id="mdlSample" role="dialog" [ngStyle]=" {'display': mdlSampleIsOpen  ? 'block' : 'none','opacity': 1,'width':'56%','margin-block-start':'-38%','margin-left':'20%'}">
+    <div style="width: 70% !important" class="modal-dialog modal-lg ">
+        <div  class="modal-content">
+            <div class="modal-header">
+                <h4 style="text-align:center"><b>Formal Recognition</b></h4>
+            </div>
+            <div style="padding:1rem" class="modal-body">
+                <app-formalreport-edit *ngIf=isModelActive [empId]="dataId" [empData]="Formalsubmissions"></app-formalreport-edit>
+            </div>
+            <div class="modal-footer" floatright>
+                <button type="button" id="btnClose" class="btn btn1" (click)="openModal(false)">
+                    Cancel </button>
+                <button type="button" id="btnClose" class="btn btn1" (click)="updateFormalInfo()">
+                    Submit </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlSample1" role="dialog" [ngStyle]=" {'display': delmdlSampleIsOpen  ? 'block' : 'none','opacity': 1,'width':'35%','margin-block-start':'-38%','margin-left':'30%'}">
+    <div id="delegtedailog" class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 style="text-align:center"><b>Confirmation</b></h4>
+            </div>
+            <div id="deletebody" class="modal-body">
+                <app-formalreport-delete></app-formalreport-delete>
+            </div>
+            <div class="modal-footer" floatright>
+                <button type="button" id="btnClose" class="btn btn1" (click)="openDelModal(false,null)">
+                    No </button>
+                <button type="button" id="btnClose" class="btn btn1" (click)="updateDelInfo()">
+                    Yes </button>
+            </div>
+        </div>
+    </div>
+</div>

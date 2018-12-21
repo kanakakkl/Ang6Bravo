@@ -1,0 +1,36 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* You can add global styles to this file, and also import other style files */
+#toast-container>div {
+    opacity: 1 !important;
+}
+
+.cdk-overlay-container {
+    background-color: transparent !important;
+}
+
+.mat-select-panel {
+    background-color: white;
+}
+.black-overlay{
+    position: absolute;
+    top: 0%;
+    left: 15.25% !important;
+    width: 84.5% !important;
+    height: 100%;
+    z-index: 99999!important;
+}
+input:focus{
+    outline: none;
+}
+select:focus{
+    outline: none;
+}
+textarea:focus{
+    outline: none;
+    outline-offset: 0px;
+}
+
+body{
+    font-family: Open Sans !important;
+}
+

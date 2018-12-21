@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <form [formGroup]="formalForm" id="main">
+        <div class="row justify-content-between">
+            <div class="col-md-8 divfields">
+                <div style="padding-top:50px">
+                    <!-- <h5 style="padding-top:25px">Recommendation for Individual/Group Recognition Award</h5> -->
+                    <div id="disDiv">
+                        <label class="lbl">Site:</label>
+                        <div>
+                            <mat-form-field class="form-formalsite-cls">
+                                <mat-select disableOptionCentering panelClass="formalsitePanelCls" formControlName="site"
+                                    #valDiv1>
+                                    <mat-option *ngFor="let site of siteusers" [value]="site.div_id">
+                                        {{site.div_name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div id="departDiv">
+                        <label class="lbl">Department:</label>
+                        <div>
+                            <mat-form-field class="form-formalsite-cls">
+                                <mat-select disableOptionCentering panelClass="formalsitePanelCls" formControlName="department"
+                                    #valDiv1>
+                                    <mat-option *ngFor="let dept of deptusers" [value]="dept.dept_id">
+                                        {{dept.dept_name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div id="valDiv">
+                        <label class="lbl">Nemak Value:</label>
+                        <div>
+                            <mat-form-field class="form-formalsite-cls">
+                                <mat-select disableOptionCentering panelClass="formalsitePanelCls" formControlName="value"
+                                    #valDiv1>
+                                    <mat-option *ngFor="let deptvalue of deptvalues" [value]="deptvalue.value_id">
+                                        {{deptvalue.nemak_value}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <h4>Please select one of the categories for recognition:</h4>
+                    <div class="form-group row">
+                        <div class="form-check" *ngFor="let tag of categories; let i = index;">
+                            <label class="form-check-label" for="tag{{tag.value}}">
+                                <input formControlName="category" class="form-check-input" value="{{tag.value}}" type="checkbox"
+                                    id="{{tag.value}}" name="tag.name" (change)="changeCheckbox(i, categories, tag.name,tag.checked)"
+                                    [checked]="tag.checked">
+                                {{tag.name}}
+                            </label>
+                        </div>
+                    </div>
+                    <p class="ptag">I want to recognize the following individual or workgroup for demonstrating
+                        continuous improvement efforts and/or significant contributions to the success of Nemak's
+                        USA/Canada business unit, in one of the above-noted areas. </p>
+                    <p class="lbl" style="margin:0px !important;">Name(s) of employee(s) recognized:</p>
+                    <div formArrayName="subtasks" style="overflow-y: auto;
+                    height: 130px;">
+                        <div class="contentDiv" *ngFor="let subtask of subtaskControl.controls; let i=index">
+                            <div class="contentDivone" [formGroupName]="i">
+                                <mat-form-field class="form-formalinput-cls">
+                                    <input *ngIf="i <= 14" class="inputTxt" type="text" (focus)="onClick($event,i)"
+                                        (keyup)="onKey($event,i)" formControlName="subtask" matInput [matAutocomplete]="auto">
+                                    <mat-placeholder *ngIf="i <= 8" #myname class="placeholder">0{{i+1}}</mat-placeholder>
+                                    <mat-placeholder *ngIf="i > 8" #myname class="placeholder">{{i+1}}</mat-placeholder>
+                                    <mat-autocomplete class="AutoMat" #auto="matAutocomplete" (optionSelected)='getPosts($event.option)'>
+                                        <mat-option *ngFor="let option of filteredOptions" [value]="option.EmployeeName">
+                                            {{option.EmployeeName}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+                            <div class="contentDivsecond">
+                                <a (click)="addName(i,subtaskControl.controls)" *ngIf="i == subtaskControl.controls.length-1  && i <= 13"
+                                    style="cursor: pointer"><img height="20px" width="20px" src="assets/img/addplus.png"
+                                        alt="addiocn"></a>
+                                <a *ngIf="i >= 0 && i != subtaskControl.controls.length-1" (click)="removeLink(i)"><img
+                                        height="20px" width="20px" src="assets/img/remove.png" alt="removeiocn"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            &nbsp;&nbsp;
+            <div class="col-md-4  divfields divfields2" style="padding-left: 25px; padding-right: 25px;">
+                <h6 style="padding-top:30px; ">Briefly describe the events or reasons for the
+                    recognition, including dates and other pertinent information: </h6>
+                <textarea formControlName="reasons" rows="8" class="form-control" [value]="reasons || ''">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <button id="btnSubmit" class="btn btn-primary" (click)="onSubmit()">SUBMIT RECOMMENDATION</button>
+        </div>
+    </form>
+</div>

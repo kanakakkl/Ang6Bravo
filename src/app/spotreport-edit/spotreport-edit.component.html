@@ -1,0 +1,52 @@
+<form [formGroup]="onForm" (ngSubmit)="onFormSubmit()">
+  <div class="row">
+    <div>
+      <h6>Site</h6>
+      <!-- <select id="div1" formControlName="Site">
+
+        <option *ngFor="let site of users" value="{{site.div_name}}">{{site.div_name}}</option>
+      </select> -->
+      <mat-form-field id="div1" class="form-edit-cls">
+        <mat-select disableOptionCentering panelClass="sitePanelClsEdit" formControlName="Site">
+            <mat-option *ngFor="let site of users" [value]="site.div_name">
+                {{site.div_name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+    <div  class="rightcol-cls div3">
+      <h6>Nemak Value</h6>
+
+      <!-- <select formControlName="Value" id="div2">
+        <option *ngFor="let val of valueString" value="{{val.nemak_value}}">{{val.nemak_value}}</option>
+      </select> -->
+
+      <mat-form-field id="div2" class="form-edit-cls">
+        <mat-select disableOptionCentering panelClass="sitePanelClsEdit" formControlName="Value">
+            <mat-option *ngFor="let val of valueString" [value]="val.nemak_value">
+                {{val.nemak_value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+  </div>
+
+  <div style="padding-block-start: 7px;">
+    <h6>Recognized Employees</h6>
+    <tag-input #tags [ngModel]="Recognized" style=" width: 94%;" [onlyFromAutocomplete]="true" [maxItems]='15'
+      [identifyBy]="'_id'" [displayBy]="'EmployeeName'" formControlName="Recognized">
+      <tag-input-dropdown [autocompleteItems]="empString" [showDropdownIfEmpty]="true" [dynamicUpdate]="false"
+        [identifyBy]="'_id'" [displayBy]="'EmployeeName'">
+      </tag-input-dropdown>
+    </tag-input>
+  </div>
+
+  <div style="padding-block-start: 8px;">
+    <h6>Description</h6>
+    <textarea style=" width: 94%;padding-top: 6px" type="text" class="textarea1" formControlName="Description"></textarea>
+  </div>
+  <div style="padding-block-start: 7px;">
+    <h6>Comments</h6>
+    <textarea style=" width: 94%;padding-top: 5px" type="text" class="textarea1" formControlName="Comments"></textarea>
+  </div>
+</form>

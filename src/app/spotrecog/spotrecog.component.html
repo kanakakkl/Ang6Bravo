@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <form [formGroup]="onSpotForm" id="main">
+        <div class="row justify-content-between">
+            <div class="col-md-8 divfields">
+                <div style="padding-top:55px">
+                    <!-- <h5 style="padding-top:25px">Recommendation Spot Recognition</h5> -->
+                    <div id="disDiv">
+                        <label class="lbl">Site:</label>
+                        <div>
+                            <mat-form-field class="form-site-cls">
+                                <mat-select disableOptionCentering panelClass="sitePanelCls" formControlName="site">
+                                    <mat-option *ngFor="let site of users" [value]="site.div_id">
+                                        {{site.div_name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div id="valDiv">
+                        <label class="lbl">Nemak Value:</label>
+                        <div>
+                            <mat-form-field class="form-site-cls">
+                                <mat-select disableOptionCentering panelClass="sitePanelCls" formControlName="value"
+                                    #valDiv1>
+                                    <mat-option *ngFor="let val of valueString" [value]="val.value_id">
+                                        {{val.nemak_value}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <!-- <select formControlName="value" #valDiv1 readonly class="input-lg" style="width:103%;height: 37px;">
+                                <img src="assets/img/arrow.png" alt="arrow">
+                                <option value=""></option>
+                                <option *ngFor="let val  of valueString" value="{{val.value_id}}">{{val.nemak_value}}</option>
+                            </select> -->
+                        </div>
+                    </div>
+                    <p class="ptag">I want to recognize the following individual or workgroup for on the spot
+                        recognition card to
+                        the following people.</p>
+                    <p class="lbl" style="margin:0px !important;">Name(s) of the employee(s) recognized.</p>
+
+                    <div formArrayName="subtasks" style="overflow-y: auto;
+                    height: 110px;">
+                        <div class="contentDiv" *ngFor="let subtask of subtaskControl.controls; let i=index">
+                            <div class="contentDivone" [formGroupName]="i">
+                                <mat-form-field class="form-input-cls">
+                                    <input *ngIf="i <= 14" class="inputTxt" type="text" (focus)="onClick($event,i)"
+                                        (keyup)="onKey($event,i)" formControlName="subtask" matInput [matAutocomplete]="auto">
+                                    <mat-placeholder *ngIf="i <= 8" #myname class="placeholder">0{{i+1}}</mat-placeholder>
+                                    <mat-placeholder *ngIf="i > 8" #myname class="placeholder">{{i+1}}</mat-placeholder>
+                                    <mat-autocomplete class="matAuto" #auto="matAutocomplete" (optionSelected)='getPosts($event.option)'>
+                                        <mat-option *ngFor="let option of filteredOptions" [value]="option.EmployeeName">
+                                            {{option.EmployeeName}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+                            <div class="contentDivsecond">
+                                <a (click)="addName(i,subtaskControl.controls)" *ngIf="i == subtaskControl.controls.length-1 && i <= 13"
+                                    style="cursor: pointer"><img height="20px" width="20px" src="assets/img/addplus.png"
+                                        alt="addiocn"></a>
+                                <a *ngIf="i >= 0 && i != subtaskControl.controls.length-1" (click)="removeLink(i)"><img
+                                        height="20px" width="20px" src="assets/img/remove.png" alt="removeiocn"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4  divfields divfields2" style="padding-left: 25px; padding-right: 25px;">
+                <h6 style="padding-top:30px;">Briefly describe the events or reasons for the recognition:</h6>
+                <textarea formControlName="reasons" rows="8" class="form-control" [value]="reasons || ''">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-12  text-center">
+            <button id="btnSubmit" class="btn btn-primary" (click)="onSubmit()">SUBMIT RECOMMENDATION</button>
+        </div>
+    </form>
+</div>

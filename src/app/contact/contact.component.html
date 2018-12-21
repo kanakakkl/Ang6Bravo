@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row justify-content-between">
+      <div id="large" class="col-md-8 divfields">
+          <div>
+            <label class="lbl" >Contact Details:</label><br/>
+            <label class="lblit">IT Support:</label><br/>
+                <label class="lbl1"><b>Kryway,Sandy</b></label> <br/>
+                <!-- <label class="lbl2"><b>Sr.IT Manager USA/CANADA</b> </label>  -->
+          </div>
+          <div class="b" id="con">
+                <!-- <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;
+                <span>Southfield, Nema
+                    k USA/CAN Two Towne Square,<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                    Suite 300 Southfield Michigan,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48076 U.S.A.</span><br><br> -->
+                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;
+                    <span>+1 (248) 304 4003</span> <br><br> 
+                    <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
+                    <span>sandy.kayway@nemak.com </span><br><br>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;
+                    <span>Southfield</span><br><br>
+                    <hr>
+                    <div><label class="lblit1">General Support:</label><br/><br></div>                    
+                    <div style="margin-top: -12px;">
+                    <label class=""><b>Title</b></label>
+                    <span style="padding-left: 20%">Human Resources Manager USA/CAN</span><br>
+                    <label class=""><b>Company</b></label>
+                    <span style="padding-left: 10%">Nemak Southfield </span><br>
+                    <label class=""><b>Department</b></label>
+                    <span style="padding-left: 4%">SFD BU Admin</span><br>               
+                     </div>                  
+                    <!-- <i class="fa fa-link" aria-hidden="true"></i>&nbsp;
+                    <span><a style="color:black;font-size: 17px;font-weight: 400" href="https://www.nemak.com/">www.nemak.com</a> </span>                  -->
+              </div>
+      </div>
+      <div id="small"  class="col-md-4  divfields">
+       
+      <h6 style=" padding-top: 31px; font-size: 24px; font-weight: 600;"> Submit your query </h6>
+      <form [formGroup]="contactForm" id="main">
+        <div id="selectDiv">
+          
+                <select formControlName="toWhom" aria-placeholder="" class="input-lg" style="padding-left: 15px; width:100%;height: 37px;margin-top: -2px; color:#bdbdbd; font-size: 16px;font-weight: 600;">
+                    <img src="assets/img/arrow.png" alt="arrow">
+                    <option value="" disabled>Select to whom</option>
+                    <option value="HR">HR</option>
+                    <option value="HR">Manager</option>
+                    <!-- <option *ngFor="let site of siteusers" value="{{site.div_id}}">{{site.div_name}}</option> -->
+                </select>
+        </div>
+        <div id="selecQuerytDiv">
+          
+          <select formControlName="queryType" class="input-lg" style="font-size: 16px;font-weight: 600;padding-left: 15px;width:100%;height: 37px; margin-top: 28px; color:#bdbdbd;">
+              <img src="assets/img/arrow.png" alt="arrow">
+              <option value="" disabled>Select the query type</option>
+              <option value="test1">test1</option>
+              <option value="test2">test2</option>
+              <!-- <option *ngFor="let site of siteusers" value="{{site.div_id}}">{{site.div_name}}</option> -->
+          </select>
+  </div>
+        
+      <textarea  placeholder="Write your query"  formControlName="Description" [value]="Description || ''" rows="8" class="form-control area">
+
+      </textarea>
+      <div class="col-md-12 text-center">
+        <button id="btnSubmit" class="btn btn-primary" (click)="showSuccess()">SUBMIT YOUR QUERY</button>
+        </div>
+      </form>
+  </div>
+  
+</div>
+
+</div>

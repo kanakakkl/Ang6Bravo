@@ -1,0 +1,43 @@
+/* .modal-dialog {
+    -webkit-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    top: 20%;
+    margin: 0 auto;
+    width: 41%;
+    position: absolute;
+    top: 320px;
+    left: 30%;
+} */
+#inp{
+    width: 120%;   
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    height: 37px;
+    padding-left: 5px;
+    
+}
+.line{
+    margin: 2%;
+}
+.line4{
+    margin: 2% 2% 2% 15%;   
+}
+.line2{
+    margin: 2% 2% 2% 15%;   
+}
+@media screen and (max-width: 1530px) 
+{
+    #inp{
+        width: 110%; }
+    .line{
+        margin: 2%;
+    }
+    .line4{
+        margin: 2% 2% 2% 4%;   
+    }
+    .line2{
+        margin: 2% 2% 2% 4%;   
+    }
+
+}

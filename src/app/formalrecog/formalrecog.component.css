@@ -1,0 +1,724 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto !important;
+}
+/* ::ng-deep .AutoMat
+{
+    visibility: visible;
+     margin:  60% 0% -24% -222%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexZero
+{
+    visibility: visible;
+     margin:  0% 0% -24% -222%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexOne
+{
+    visibility: visible;
+     margin: 0% 0% -24% -118%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexOdd
+{
+    visibility: visible;
+     margin: 0% 0% -24% -118%; 
+    position: absolute !important;
+    background-color: white;
+}
+::ng-deep .indexEven
+{
+    visibility: visible;
+     margin: 0% 0% -24% -222%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .mat-autocomplete-panel
+{
+    position: absolute !important;
+    max-height: 206px !important;
+    top:inherit;
+} */
+
+
+
+.divfields
+{
+    box-shadow:  0 0 5px gray;
+    border-radius: 5px;
+    height: 572px;
+    overflow-y: scroll;
+    background: #fff;
+    margin-left: -45px;
+    overflow:hidden;
+}
+
+  select{
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    border : 1px solid lightgray;
+    border-radius: 20px;
+    height: 34px;
+    background: url(/assets/img/arrow.png)  no-repeat right white;
+    background-size: 12px 8px;
+    -webkit-appearance: none;
+    background-position-x: 97%;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+#main { 
+    width: 100%;
+    /* padding-top: 25px; */
+}
+#disDiv    {
+    width: 47%;
+    float: left;
+   
+}
+
+#valDiv  {
+    width: 47%;
+   
+}
+#departDiv{
+    width: 47%;
+    float: left;
+    margin-left: 16px;
+}
+.ptag
+{
+    padding-top: 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.lbl
+{
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+}
+.inputTxt
+{
+    width: 170%;
+    height: 37px;
+    border : 1px solid lightgray;
+    border-radius: 20px;
+    padding: 0px 35px 5px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    .inputTxt
+{
+    width: 200%;
+    height: 37px;
+    border : 1px solid lightgray;
+    border-radius: 20px;
+}
+  }
+
+/* #textareaFormal
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+} */
+/* .card
+{
+    border: none;
+}
+.card-title
+{
+    padding-top: 30px;
+    margin-bottom: 0;
+    padding-left: 10px;
+} */
+/* .divTxt
+{
+    width: 26%;
+    float: none;
+     margin: 0 auto; 
+   position: absolute;
+   right: 34px;
+   top: 180px;
+   z-index: inherit 0.25;
+   box-shadow: -1px 1px 1px 1px #e4e4e4;
+   border-radius: 5px;
+   height: 370px;;
+} */
+::placeholder
+{
+    padding-left:10px;
+    font-size: 14px;
+    font-weight: 500;
+    color:#bdbdbd;
+}
+.contentDiv
+{
+    width:50%;
+    float: left;
+    display: flex;
+    align-items: center;
+    /* padding-top: 15px; */
+    line-height: 13px;
+    /* padding-bottom: 11px; */
+}
+
+.contentDivone
+{
+    float:left;
+}
+.contentDivsecond
+{
+    float:right;
+    /* padding-top:20px; */
+    padding-left:6px;
+}
+
+
+/* scrool for the items  */
+.divfields::-webkit-scrollbar-track {
+    padding: 2px 0;
+}
+.divfields { -ms-overflow-style: none; }
+
+.divfields::-webkit-scrollbar {
+    width: 10px;
+}
+
+.divfields2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #737272;
+}
+
+/* text area scrool style for  chrome */
+textarea::-webkit-scrollbar {
+width: 10px;
+}
+
+textarea::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey; 
+border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+background: #e4e4e4;
+border-radius: 10px;
+}
+
+/* hide the arrow in mozilla */
+.input-lg {
+    -moz-appearance:window;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+ }
+
+ 
+.justify-content-between {
+    margin-top: -50px !important;
+}
+
+.container-fluid {
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#descDiv{
+    margin: -45.65% 70%;
+}
+@supports (-moz-appearance:none) {
+    #descDiv{
+        margin: -45.65% 70%;
+    }
+}
+#btnSubmit:hover{
+    -ms-transform: scale(0.09); 
+    -webkit-transform: scale(0.09);
+    transform: scale(1.09); 
+    transition: transform 0.04ms;      
+}
+
+#btnSubmit
+{
+    margin: 7% 2%;
+    background-color: #108ac1;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+    border: none;
+    height: 40px;
+    padding : 0 25px 0 25px;
+}
+
+@media screen and (max-width: 767px) {
+    #descDiv
+    {
+        margin:0;
+    }
+    .justify-content-between {
+        margin-top: 0px !important;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    .inputTxt
+{
+    width: 62%;
+    height: 37px;
+    border : 1px solid lightgray;
+    border-radius: 20px;
+}
+  }
+
+  .contentDiv
+{
+    width:auto;
+    float: left;
+    display: flex;
+    align-items: center;
+    /* padding-top: 15px; */
+    line-height: 13px;
+    /* padding-bottom: 11px; */
+}
+
+.divfields2{
+    margin-top: 7px;
+}
+
+.divfields[_ngcontent-c9] {
+    height: 770px;
+}
+
+.contentDivone{
+    float: left;
+    width: 207px;
+    height: 81px;
+}
+
+.form-formalinput-cls[_ngcontent-c8] {
+    width: 280px !important;
+}
+
+select{
+ width:215% !important;
+}
+
+#departDiv[_ngcontent-c9] {
+    width: 47%;
+    float: left;
+    margin-left: auto;
+    margin-right: 20px;
+}
+    
+}
+
+@media screen and (width: 1280px) , screen and (height: 800px)
+{
+    #descDiv
+    {
+        margin: -56.65% 70%;
+    }
+    .contentDiv
+    {
+        width: 65%;
+    }
+    /* ::ng-deep .indexZero
+{
+    visibility: visible;
+     margin: 0% 0% -24% -151%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexOne
+{
+    visibility: visible;
+     margin: 0% 0% -24% -151%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexOdd
+{
+    visibility: visible;
+     margin: 0% 0% -24% -151%; 
+    position: absolute !important;
+    background-color: white;
+}
+::ng-deep .indexEven
+{
+    visibility: visible;
+     margin: 0% 0% -24% -151%; 
+    position: absolute;
+    background-color: white;
+} */
+}
+@media screen and (width: 1366px) , screen and (height: 768px)
+{
+     #descDiv
+    {
+        margin: -52.6% 70%;
+        
+    }
+    .contentDiv
+    {
+        width: 62%;
+    }
+    /* ::ng-deep .indexZero
+    {
+     visibility: visible;
+      margin: 0% 0% -24% -171%; 
+     position: absolute;
+     background-color: white; 
+    }
+    ::ng-deep .indexOne
+ {
+     visibility: visible;
+      margin: 0% 0% -24% -171%; 
+     position: absolute;
+     background-color: white;
+ }
+ ::ng-deep .indexEven
+ {
+     visibility: visible;
+      margin: 0% 0% -24% -171%; 
+     position: absolute ;
+     background-color: white;
+ }
+ ::ng-deep .indexOdd
+ {
+     visibility: visible;
+      margin: 0% 0% -24% -171%; 
+     position: absolute ;
+     background-color: white;
+ } */
+}
+@media screen and (width: 1440px) , screen and (height: 900px)
+{
+    #descDiv
+    {
+        margin: -50.65% 70%;
+    }
+    .contentDiv
+    {
+        width: 60%;
+    }
+    /* ::ng-deep .indexZero
+    {
+        visibility: visible;
+         margin: 0% 0% -24% -189%; 
+        position: absolute;
+        background-color: white;
+    }
+    ::ng-deep .indexOne
+    {
+        visibility: visible;
+         margin: 0% 0% -24% -189%; 
+        position: absolute;
+        background-color: white;
+    }
+    ::ng-deep .indexOdd
+    {
+        visibility: visible;
+         margin: 0% 0% -24% -189%; 
+        position: absolute !important;
+        background-color: white;
+    }
+    ::ng-deep .indexEven
+    {
+        visibility: visible;
+         margin: 0% 0% -24% -189%; 
+        position: absolute;
+        background-color: white;
+    } */
+       
+}
+@media screen and (width: 1920px) , screen and (height: 1080px)
+{
+    #descDiv
+    {
+        margin: -37.95% 70%;
+    }
+    .contentDiv
+    {
+        width: 42%;
+    }
+    select{
+        width: 268px;
+        padding: 5px;
+        font-size: 16px;
+        line-height: 1.5;
+        border : 1px solid lightgray;
+        border-radius: 20px;
+        height: 34px;
+        background: url(/assets/img/arrow.png)  no-repeat right white;
+        background-size: 12px 8px;
+        -webkit-appearance: none;
+        background-position-x: 95% !important;
+       
+    }
+
+    /* ::ng-deep .indexZero
+{
+    visibility: visible;
+     margin: 0% 0% -24% -285%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexOne
+{
+    visibility: visible;
+     margin: 0% 0% -24% -182%; 
+    position: absolute;
+    background-color: white;
+}
+::ng-deep .indexOdd
+{
+    visibility: visible;
+     margin: 0% 0% -24% -182% ;
+    position: absolute !important;
+    background-color: white;
+}
+::ng-deep .indexEven
+{
+    visibility: visible;
+     margin: 0% 0% -24% -285% ;
+    position: absolute;
+    background-color: white;
+}
+    */
+    
+}
+@media screen and (width: 768px) , screen and (height: 1024px)
+{
+    #descDiv
+    {
+        margin:0px;
+    }
+    .justify-content-between {
+        margin-top: 0px !important;
+    }
+    .contentDiv
+    {
+        width:100%;
+        float: left;
+        display: flex;
+        align-items: center;
+        /* padding-top: 15px; */
+        line-height: 13px;
+        /* padding-bottom: 11px; */
+    }
+}
+@media screen and (width: 1024px) , screen and (height: 1366px)
+{
+    #descDiv
+    {
+        margin:0px;
+    }
+    .justify-content-between {
+        margin-top: 0px !important;
+    }
+    .contentDiv
+    {
+        width:100%;
+        float: left;
+        display: flex;
+        align-items: center;
+        /* padding-top: 15px; */
+        line-height: 13px;
+        /* padding-bottom: 11px; */
+    }
+}
+/* h6{
+    margin-top: 30px;
+
+    
+    font-size: 16px;
+
+} */
+/* .checkbox-grid li {
+    display: inline-block;
+    float: left;
+    width: 25%;
+} */
+h4{
+    font-size: 14px;
+    margin-top: 30px;
+}
+#multiSelect{
+    color:#212121;
+    
+
+
+}
+.form-check-inline{
+    margin-right: 0.75rem;
+    color:black;
+}
+.form-check-label{
+    font-weight: 500;
+     color:#212121;
+     font-size: 14px;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 2.25rem !important;
+}
+
+.form-formalinput-cls {
+    width: 340px !important;
+}
+
+
+.placeholder {
+    color: #000;
+}
+
+ /* ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+    margin: 10px !important;
+} */
+
+/* ::ng-deep .AutoMat {
+    visibility: visible;
+    margin:57% 0% 0% -258%;
+    position: absolute !important;
+    background-color: white;
+} */
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled), .mat-option:hover:not(.mat-option-disabled) {
+    background: rgba(0,0,0,.04);
+}
+
+.mat-option.mat-active {
+    background: rgba(0,0,0,.04);
+    color: rgba(0,0,0,.87);
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+
+    ::ng-deep .formalsitePanelCls.mat-select-panel{
+        margin-top: 35px !important;
+        min-width: 100% !important;
+    }
+    
+
+}
+
+/*sub task css*/
+
+::ng-deep .form-formalinput-cls.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px !important;
+}
+::ng-deep .form-formalinput-cls.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+    background: none !important;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field.mat-focused .mat-form-field-ripple{
+    background: none !important;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(1px);
+    -ms-transform: translateY(-1.28125em) scale(.75);
+    width: 133.33333%;
+    top: 2.5em !important;
+    font-size: 21px !important;
+    position: absolute;
+    color: #000;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field-label-wrapper {
+    top: 0px !important;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field-underline {
+    display: none;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 1.5em !important;
+    left: 0.4em !important;
+    position: absolute;
+    font-size: 17px !important;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field-appearance-legacy .mat-form-field-infix{
+    border:none;
+}
+
+::ng-deep .form-formalinput-cls.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+    padding-top: 5px !important;
+}
+
+
+/*combos css*/
+/*site panel css*/
+
+::ng-deep .formalsitePanelCls.mat-select-trigger
+{
+    height: 40px;
+    border: 1px solid #d0d0d0 !important;
+    width: 250%;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+::ng-deep .formalsitePanelCls.mat-select-value
+{
+    padding: 6px;
+    color:black;
+}
+::ng-deep .form-formalsite-cls.mat-form-field .mat-select.mat-select-invalid .mat-select-arrow
+{
+    color:black;
+    margin: 0 10px !important;
+}
+::ng-deep .form-formalsite-cls.mat-form-field.mat-focused.mat-primary .mat-select-arrow
+{
+    color:black;
+    margin: 0 10px !important;
+}
+
+::ng-deep .formalsitePanelCls.mat-select-panel{
+    margin-top: 35px !important;
+}
+
+::ng-deep .form-formalsite-cls.mat-form-field{
+    width:100%;
+}
+
+::ng-deep .form-formalsite-cls.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.62em !important;
+    border: none !important;
+}
+
+::ng-deep .form-formalsite-cls.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding: 0px;
+    border: 1px solid #d0d0d0;
+    border-radius: 25px;
+}
+::ng-deep .form-formalsite-cls.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px !important;
+}
+
+::ng-deep .form-formalsite-cls.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+    background: none !important;
+}
+
+::ng-deep .form-formalsite-cls.mat-form-field.mat-focused .mat-form-field-ripple{
+    background: none !important;
+}

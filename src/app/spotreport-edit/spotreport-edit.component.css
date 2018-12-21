@@ -1,0 +1,255 @@
+.row{
+    margin: auto;
+}
+
+/* .row-inputCls{
+    width:176%
+}
+.rightcol-cls{
+    margin-inline-start: 25%
+}
+
+.recog-cls{
+    display:flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+}
+.right_recogcol-cls{
+    margin-inline-start: 4px;
+} */
+#div1{
+    width: 280px;   
+}
+#div2{
+    width: 280px;
+}
+.div3
+{
+    margin-left: 22px;
+}
+@media screen and (max-width: 1510px) 
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 400px;   
+    }
+    #div2{
+        width: 400px;
+    }
+}
+@media screen and (width: 360px) , screen and (height: 640px)
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 170px;   
+    }
+    #div2{
+        width: 170px;
+    }
+}
+@media screen and (width: 768px) , screen and (height: 1024px)
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 250px;   
+    }
+    #div2{
+        width: 250px;
+    }
+    select
+{
+    border-radius: 20px;
+    height: 25px;
+}
+}
+@media screen and (width: 1024px) , screen and (height: 1366px)
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 200px;   
+    }
+    #div2{
+        width: 200px;
+    }
+    select
+{
+    border-radius: 20px;
+    height: 25px;
+}
+}
+@media screen and (width: 320px) , screen and (height: 568px)
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 170px;   
+    }
+    #div2{
+        width: 170px;
+    }
+    select
+{
+    border-radius: 20px;
+    height: 25px;
+}
+}
+@media screen and (width: 375px) , screen and (height: 667px)
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 170px;   
+    }
+    #div2{
+        width: 170px;
+    }
+    select
+{
+    border-radius: 20px;
+    height: 25px;
+}
+}
+@media screen and (width: 414px) , screen and (height: 736px) 
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 200px;   
+    }
+    #div2{
+        width: 200px;
+    }
+    select
+{
+    border-radius: 20px;
+    height: 25px;
+}
+}
+@media screen and (width: 411px) , screen and (height: 731px) 
+{
+    .div3
+    {
+        margin-left: 0px;
+    }
+    #div1{
+        width: 200px;   
+    }
+    #div2{
+        width: 200px;
+    }
+    select
+{
+    border-radius: 20px;
+    height: 25px;
+}
+}
+/* #div3{
+    width: 266px;
+}
+#div4{
+    width: 266px;
+}
+#div5{
+    width: 268px;
+}
+#div6{
+    width: 268px;
+}
+#div7{
+    width: 268px;
+}
+h6{
+    margin-bottom: -0.5rem;
+    line-height: 3;
+} */
+
+
+::ng-deep .ng2-tag-input{
+    border: 1px solid rgb(169, 169, 169);
+}
+
+select
+{
+    border-radius: 20px;
+    height: 35px;
+}
+
+/* combocss */
+::ng-deep .sitePanelClsEdit.mat-select-trigger
+{
+    height: 40px;
+    border: 1px solid #d0d0d0 !important;
+    width: 250%;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+::ng-deep .sitePanelClsEdit.mat-select-value
+{
+    padding: 6px;
+    color:black;
+}
+::ng-deep .form-edit-cls.mat-form-field .mat-select.mat-select-invalid .mat-select-arrow
+{
+    color:black;
+    margin: 0 10px !important;
+}
+::ng-deep .form-edit-cls.mat-form-field.mat-focused.mat-primary .mat-select-arrow
+{
+    color:black;
+    margin: 0 10px !important;
+}
+
+::ng-deep .sitePanelClsEdit.mat-select-panel{
+    margin-top: 35px !important;
+}
+
+::ng-deep .form-edit-cls.mat-form-field{
+    width:100%;
+}
+
+::ng-deep .form-edit-cls.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.62em !important;
+    border: none !important;
+}
+
+::ng-deep .form-edit-cls.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding: 0px;
+    border: 1px solid #d0d0d0;
+    border-radius: 25px;
+}
+::ng-deep .form-edit-cls.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px !important;
+}
+
+::ng-deep .form-edit-cls.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+    background: none !important;
+}
+
+::ng-deep .form-edit-cls.mat-form-field.mat-focused .mat-form-field-ripple{
+    background: none !important;
+}
+
+::ng-deep .form-edit-cls.mat-form-field-appearance-legacy .mat-form-field-underline {
+    bottom: 0em !important;
+}

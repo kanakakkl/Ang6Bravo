@@ -1,0 +1,32 @@
+<form [formGroup]="DetailsForm" (ngSubmit)="onFormSubmit()">
+  <div class="row">
+    <div class="line">
+      <h6>Division</h6>
+      <input id="inp" type = "text" readonly formControlName="Division"/>
+    </div>
+    <div  class="line2">
+      <h6>Department</h6>
+      <input id="inp" type = "text" readonly formControlName="Department"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div  class="line">
+      <h6>Category</h6>
+      <input id="inp" type = "text" readonly formControlName="Category"/>
+    </div>
+    <div class="line4">
+      <h6>Nemak Value</h6>
+      <input id="inp" type = "text" readonly formControlName="Value"/>
+    </div>
+      </div> 
+      <div>
+        <h6>Recognized Employees</h6>
+        <textarea style=" width: 96%;  padding-top: 7px" type="text" class="textarea1" readonly formControlName="Recognized"></textarea>
+      </div>   
+      <div>
+        <h6>Comments</h6>
+        <textarea style=" width: 96%; padding-top: 7px" type="text" readonly class="textarea1" formControlName="Comments"></textarea>
+      </div>
+  
+  </form>

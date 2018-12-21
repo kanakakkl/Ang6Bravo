@@ -1,0 +1,114 @@
+<div class="Topbar" style="margin-left: -45px;">
+  <div class="search">
+    <input type="search" [(ngModel)]="searchText" placeholder="Search by" class="form" id="usr">
+  </div>
+</div>
+
+<div style="margin-left: -45px;" [ngStyle]=" {'opacity': detailsmdlIsOpen ? '0.4' : '1','pointer-events': detailsmdlIsOpen ? 'none' : 'auto'}">
+  <div class="row icondiv">
+    <div class="col-md-7">
+      <h4>Approvals</h4>
+    </div>
+    <div class="col-md-5">
+      <div class="text-right">
+        <ul>
+          <li><a (click)="getAllFilter()"><img height="15px" width="35px" src="assets/img/all.png"><br><label style="padding-right:10px">all</label></a></li>
+          <li><a (click)="getApprovalFilter()"><img style="margin-right: 10px;" height="20px" width="25px" src="assets/img/accept.png"><br><label>Approved</label></a></li>
+          <li><a  (click)="getDeclinedFilter()"><img style="margin-right: 10px;" height="20px" width="20px" src="assets/img/decline.png"><br><label>Declined</label></a></li>
+          <li><a (click)="getPendingFilter()"><img style="margin-right: 10px;" height="20px" width="20px" src="assets/img/hold.png"><br><label>Pending</label></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div id="topMenu">
+    <div class="wrapper">
+      <div class="list row">
+          <div *ngIf="!search() || search().length === 0">
+              <p style="padding:5px; text-align: center">
+                <b>No records to display!!</b>
+              </p>
+          </div>
+        <div *ngFor=" let data of search(),let ind=index" [ngClass]="{'my-class': ind>0}">
+          <mat-card class="item example-card">
+            <mat-card-header class="matHead">
+              <!-- <div mat-card-avatar class="example-header-image"></div> --> 
+              <mat-card-title>Ref.ID : {{data.Approval_id}}</mat-card-title>
+              <img class="imgIcon" height="15px" width="15px" src="assets/img/info.png" (click)="View(data)"
+                aria-hidden="true">
+              <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            </mat-card-header>
+            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+            <div class="comDiv">
+              <div  *ngFor="let commentsdata of allComments; let i=index">
+                <mat-card-content [ngClass]="sIndex == i ?'content1':'content'">
+                  <div *ngIf='data.Approval_id == commentsdata.Approval_id' [ngClass]="sIndex ==  i ?'contentdiv1':'contentdiv'">
+                    <img *ngIf='commentsdata.Status == "Approved" ' [ngClass]="sIndex ==  i ?'imggrn2':'imggrn'" height="15px" width="15px"
+                      src="assets/img/green.png">
+                    <img *ngIf='commentsdata.Status == "Declined" ' [ngClass]="sIndex ==  i ?'imggrn2':'imggrn'" height="15px" width="15px"
+                      src="assets/img/red.png">
+                    <img *ngIf='commentsdata.Status == "pending" ' [ngClass]="sIndex ==  i ?'imggrn2':'imggrn'" height="15px" width="15px"
+                      src="assets/img/orange.png">
+                    <p style="font-style: italic">"{{commentsdata.Comments}}"</p>
+                    <p>Referred by :{{commentsdata.Commented_by}}</p>
+                  </div>
+
+                </mat-card-content>
+                <label *ngIf='data.Approval_id == commentsdata.Approval_id' [ngClass]="sIndex ==  i ?'datecom1':'datecom'">{{commentsdata.Commented_date
+                  |
+                  date:'MMM d, y, h:mm a'}}</label>
+              </div>
+              <!-- <div *ngFor="let commentsdata of allComments">
+            <mat-card-content [ngClass]="comentsaign ?'content':'content1'">
+              <div *ngIf='data.Approval_id == commentsdata.Approval_id' class="contentdiv1">
+                <img *ngIf='commentsdata.Approval_status == "Approved" ' class="imggrn2" height="15px" width="15px" src="assets/img/green.png">
+                <img *ngIf='commentsdata.Approval_status == "Declined" ' class="imggrn2" height="15px" width="15px" src="assets/img/red.png">
+                <img *ngIf='commentsdata.Approval_status == "pending" ' class="imggrn2" height="15px" width="15px" src="assets/img/orange.png">
+                <p style="font-style: italic">"{{commentsdata.Comments}}"</p>
+                <p>Referred by :{{commentsdata.Commented_by}}</p>
+              </div>
+
+            </mat-card-content>
+            <label *ngIf='data.Approval_id == commentsdata.Approval_id'  [ngClass]="comentsaign ?'datecom':'datecom1'">{{commentsdata.Commented_date
+              | date:'MMM d, y, h:mm a'}}</label>
+          </div> -->
+            </div>
+            <mat-card-actions>
+              <ul class="ulActions">
+                <li class="ulActions txt liright"><input class="inputTxt" placeholder="comments" #addcomment [value]=""
+                    type="text"></li>
+                <li class="ulActions liright"><img style="margin-right: 10px;" height="18px" width="23px" src="assets/img/accept.png"
+                    (click)="acceptReocg(addcomment,data)"></li>
+                <li class="ulActions liright"><img style="margin-right: 10px;" height="18px" width="18px" src="assets/img/decline.png"
+                  (click)="declineReocg(addcomment,data)"></li>
+                <li class="ulActions liright"><img style="margin-right: 10px;" height="18px" width="18px" src="assets/img/hold.png"
+                  (click)="pendingReocg(addcomment,data)"></li>
+              </ul>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div  class="scroller scroller-left" ><i class="fa fa-arrow-left">&nbsp; PREV</i></div>
+    <div  class="scroller scroller-right" ><i class="fa fa-arrow-right">&nbsp; NEXT</i></div>
+  </div>
+</div>
+<div id="mdlSample" role="dialog" [ngStyle]=" {'display': detailsmdlIsOpen ? 'block' : 'none','opacity': 1,'width':'50%','margin-block-start':'-43%','margin-left':'20%'}">
+  <div id="deletedailog" class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 style="text-align:center"><b>Recognition Details</b></h4>
+      </div>
+      <div id="deletebody" class="modal-body">
+        <app-approval-details *ngIf=isModelActive [aprId]="approveId" [aprData]="formalSubmissionRecords"></app-approval-details>
+      </div>
+      <div class="modal-footer" floatright>
+        <button type="button" id="btnClose" class="btn btn1" (click)="openFormDelModal(false)">
+          cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

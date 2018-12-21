@@ -1,0 +1,93 @@
+<form [formGroup]="onForm" (ngSubmit)="onFormSubmit()">
+  <div class="row">
+    <div>
+      <h6>Division</h6>
+      <!-- <input class="row-inputCls" formControlName="Division"> -->
+      <!-- <select id="div1" formControlName="Division">
+        <option *ngFor="let site of siteuser" value="{{site.div_name}}">{{site.div_name}}</option>
+      </select> -->
+      <mat-form-field class="form-formalEditsite-cls">
+        <mat-select disableOptionCentering panelClass="formaleditPanelCls" formControlName="Division">
+            <mat-option *ngFor="let site of siteuser" [value]="site.div_name">
+                {{site.div_name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+    <div style="margin-left: 20%;" class="rightcol-cls">
+      <h6>Department</h6>
+      <!-- <select formControlName="Department" class="input-lg" id="div2">
+        <option *ngFor="let dept of deptusers" value="{{dept.dept_name}}">{{dept.dept_name}}</option>
+      </select> -->
+      <mat-form-field  class="form-formalEditsite-cls">
+        <mat-select disableOptionCentering panelClass="formaleditPanelCls" formControlName="Department"> 
+            <mat-option *ngFor="let dept of deptusers" [value]="dept.dept_name">
+                {{dept.dept_name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div >
+        <h6>Category</h6>
+        <!-- <select formControlName="Category" id="div3">
+          <option value="Quality">Quality</option>
+          <option value="Cost/ Productivity">Cost/ Productivity</option>
+          <option value="Morale">Morale</option>
+          <option value="Community Involvement">Community Involvement</option>
+          <option value="Safety">Safety</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Environment">Environment</option>
+          <option value="Others">Others</option>
+        </select> -->
+        <mat-form-field  class="form-formalEditsite-cls">
+          <mat-select disableOptionCentering panelClass="formaleditPanelCls"  formControlName="Category"
+              #valDiv1>
+              <mat-option value="Quality">Quality</mat-option>
+              <mat-option value="Cost/ Productivity">Cost/ Productivity</mat-option>
+              <mat-option value="Morale">Morale</mat-option>
+              <mat-option value="Community Involvement">Community Involvement</mat-option>
+              <mat-option value="Safety">Safety</mat-option>
+              <mat-option value="Delivery">Delivery</mat-option>
+              <mat-option value="Others">Others</mat-option> 
+          </mat-select>
+      </mat-form-field>
+      </div>
+      <div style="margin-left: 20%;" class="rightcol-cls">
+        <h6>Nemak Value</h6>
+        <!-- <select formControlName="Value" >
+          <option *ngFor="let deptvalue of deptvalues" value="{{deptvalue.nemak_value}}">{{deptvalue.nemak_value}}</option>
+        </select> -->
+        <mat-form-field  class="form-formalEditsite-cls">
+          <mat-select disableOptionCentering panelClass="formaleditPanelCls" formControlName="Value"
+              #valDiv1>
+              <mat-option *ngFor="let deptvalue of deptvalues" [value]="deptvalue.nemak_value">
+                  {{deptvalue.nemak_value}}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h6>Recognized Employees</h6>
+      <tag-input #tags [ngModel]="Recognized" style=" width: 96%;" [onlyFromAutocomplete]="true" [maxItems]='15'
+        [identifyBy]="'_id'" [displayBy]="'EmployeeName'" formControlName="Recognized">
+        <tag-input-dropdown [autocompleteItems]="empString" [showDropdownIfEmpty]="true" [dynamicUpdate]="false"
+          [identifyBy]="'_id'" [displayBy]="'EmployeeName'">
+        </tag-input-dropdown>
+      </tag-input>
+    </div>
+    <div style="padding-block-start: 9px;">
+      <h6>Description</h6>
+      <textarea style=" width: 96%;padding-top: 7px" type="text" class="textarea1" formControlName="Description"></textarea>
+    </div>
+    <div>
+      <h6>Comments</h6>
+      <textarea style=" width: 96%; padding-top: 7px" type="text" class="textarea1" formControlName="Comments"></textarea>
+    </div>
+  </div>
+</form>
